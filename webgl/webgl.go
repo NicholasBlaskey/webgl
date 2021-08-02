@@ -19,7 +19,7 @@ func FromCanvas(canvas js.Value) (*Gl, error) {
 		return nil, errors.New("Unable to create webgl rendering context")
 	}
 
-	return Gl{gl}, nil
+	return &Gl{gl}, nil
 }
 
 func (gl *Gl) ClearColor(r, g, b, a float32) {
