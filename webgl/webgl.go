@@ -21,6 +21,12 @@ const (
 	TRIANGLES      = 0x0004
 	TRIANGLE_STRIP = 0x0005
 	TRIANGLE_FAN   = 0x0006
+
+	ARRAY_BUFFER         = 0x8892
+	ELEMENT_ARRAY_BUFFER = 0x8893
+	STATIC_DRAW          = 0x88E4
+
+	FLOAT = 0x1406
 )
 
 type Gl struct {
