@@ -87,3 +87,18 @@ func (gl *Gl) Uniform4i(loc *UniformLocation, x, y, z, w int) {
 func (gl *Gl) Uniform4iv(loc *UniformLocation, x []int) {
 	gl.JsGl.Call("uniform4iv", loc.JsUniformLocation, toTypedArray(x))
 }
+
+// Mat2
+func (gl *Gl) UniformMatrix2fv(loc *UniformLocation, transpose bool, x []float32) {
+	gl.JsGl.Call("uniformMatrix2fv", loc.JsUniformLocation, transpose, toTypedArray(x))
+}
+
+// Mat3
+func (gl *Gl) UniformMatrix3fv(loc *UniformLocation, transpose bool, x []float32) {
+	gl.JsGl.Call("uniformMatrix3fv", loc.JsUniformLocation, transpose, toTypedArray(x))
+}
+
+// Mat4
+func (gl *Gl) UniformMatrix4fv(loc *UniformLocation, transpose bool, x []float32) {
+	gl.JsGl.Call("uniformMatrix4fv", loc.JsUniformLocation, transpose, toTypedArray(x))
+}
