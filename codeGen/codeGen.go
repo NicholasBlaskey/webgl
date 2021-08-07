@@ -32,15 +32,21 @@ func main() {
 }
 
 func generateCode(constants []constantInfo) {
+	printedBefore := make(map[string]bool)
+
 	fmt.Println(`package webgl
 
-const (
-`)
+const (`)
 	for _, c := range constants {
-		if c.desc != "" {
-			c.desc = "//" + c.desc
+		if printedBefore[c.name] {
+			continue
 		}
-		fmt.Println(c.name + " = " + c.val + " " + c.desc)
+
+		if c.desc != "" {
+			c.desc = "// " + c.desc
+		}
+		fmt.Println("\t" + c.name + " = " + c.val + " " + c.desc)
+		printedBefore[c.name] = true
 	}
 	fmt.Println(")")
 }

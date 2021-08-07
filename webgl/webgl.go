@@ -5,30 +5,6 @@ import (
 	"syscall/js"
 )
 
-const (
-	COLOR_BUFFER_BIT = 0x00004000
-
-	FRAGMENT_SHADER = 0x8B30
-	VERTEX_SHADER   = 0x8B31
-
-	LINK_STATUS    = 0x8B82
-	COMPILE_STATUS = 0x8B81
-
-	POINTS         = 0x0000
-	LINES          = 0x0001
-	LINE_LOOP      = 0x0002
-	LINE_STRIP     = 0x0003
-	TRIANGLES      = 0x0004
-	TRIANGLE_STRIP = 0x0005
-	TRIANGLE_FAN   = 0x0006
-
-	ARRAY_BUFFER         = 0x8892
-	ELEMENT_ARRAY_BUFFER = 0x8893
-	STATIC_DRAW          = 0x88E4
-
-	FLOAT = 0x1406
-)
-
 type Gl struct {
 	JsGl js.Value
 }
