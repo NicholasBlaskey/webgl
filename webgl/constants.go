@@ -1,6 +1,38 @@
 package webgl
 
 const (
+	TEXTURE0 = 0x84C0 // A texture unit.
+	TEXTURE1 = 0x84C1 // A texture unit.
+	TEXTURE2 = 0x84C2 // A texture unit.
+	TEXTURE3 = 0x84C3 // A texture unit.
+	TEXTURE4 = 0x84C4 // A texture unit.
+	TEXTURE5 = 0x84C5 // A texture unit.
+	TEXTURE6 = 0x84C6 // A texture unit.
+	TEXTURE7 = 0x84C7 // A texture unit.
+	TEXTURE8 = 0x84C8 // A texture unit.
+	TEXTURE9 = 0x84C9 // A texture unit.
+	TEXTURE10 = 0x84CA // A texture unit.
+	TEXTURE11 = 0x84CB // A texture unit.
+	TEXTURE12 = 0x84CC // A texture unit.
+	TEXTURE13 = 0x84CD // A texture unit.
+	TEXTURE14 = 0x84CE // A texture unit.
+	TEXTURE15 = 0x84CF // A texture unit.
+	TEXTURE16 = 0x84D0 // A texture unit.
+	TEXTURE17 = 0x84D1 // A texture unit.
+	TEXTURE18 = 0x84D2 // A texture unit.
+	TEXTURE19 = 0x84D3 // A texture unit.
+	TEXTURE20 = 0x84D4 // A texture unit.
+	TEXTURE21 = 0x84D5 // A texture unit.
+	TEXTURE22 = 0x84D6 // A texture unit.
+	TEXTURE23 = 0x84D7 // A texture unit.
+	TEXTURE24 = 0x84D8 // A texture unit.
+	TEXTURE25 = 0x84D9 // A texture unit.
+	TEXTURE26 = 0x84DA // A texture unit.
+	TEXTURE27 = 0x84DB // A texture unit.
+	TEXTURE28 = 0x84DC // A texture unit.
+	TEXTURE29 = 0x84DD // A texture unit.
+	TEXTURE30 = 0x84DE // A texture unit.
+	TEXTURE31 = 0x84DF // A texture unit.
 	DEPTH_BUFFER_BIT = 0x00000100 // Passed to clear to clear the current depth buffer.
 	STENCIL_BUFFER_BIT = 0x00000400 // Passed to clear to clear the current stencil buffer.
 	COLOR_BUFFER_BIT = 0x00004000 // Passed to clear to clear the current color buffer.

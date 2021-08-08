@@ -37,6 +37,14 @@ func generateCode(constants []constantInfo) {
 	fmt.Println(`package webgl
 
 const (`)
+
+	// Print out texture units
+	index := 0
+	for i := 0x84C0; i <= 0x84DF; i++ {
+		fmt.Printf("\tTEXTURE%d = 0x%X // A texture unit.\n", index, i)
+		index++
+	}
+
 	for _, c := range constants {
 		if printedBefore[c.name] {
 			continue

@@ -17,7 +17,7 @@ func (gl *Gl) CreateTexture() *Texture {
 }
 
 func (gl *Gl) BindTexture(target int, texture *Texture) {
-	gl.JsGl.Call("bindTexture", target, texture)
+	gl.JsGl.Call("bindTexture", target, texture.JsTexture)
 }
 
 func (gl *Gl) ActiveTexture(texUnit int) {
