@@ -33,3 +33,15 @@ func (gl *Gl) DrawArrays(mode, first, count int) {
 func (gl *Gl) Viewport(x, y, width, height int) {
 	gl.JsGl.Call("viewport", x, y, width, height)
 }
+
+func (gl *Gl) Enable(mask int) {
+	gl.JsGl.Call("enable", mask)
+}
+
+func (gl *Gl) Disable(mask int) {
+	gl.JsGl.Call("disable", mask)
+}
+
+func (gl *Gl) Scissor(x, y, width, height int) {
+	gl.JsGl.Call("scissor", x, y, width, height)
+}
