@@ -29,3 +29,7 @@ func (gl *Gl) Clear(mask int) {
 func (gl *Gl) DrawArrays(mode, first, count int) {
 	gl.JsGl.Call("drawArrays", mode, first, count)
 }
+
+func (gl *Gl) Viewport(x, y, width, height int) {
+	gl.JsGl.Call("viewport", x, y, width, height)
+}
