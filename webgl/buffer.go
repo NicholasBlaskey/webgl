@@ -21,6 +21,10 @@ func (gl *Gl) CreateBuffer() *Buffer {
 	return &Buffer{buff}
 }
 
+func (gl *Gl) DeleteBuffer(buff *Buffer) {
+	gl.JsGl.Call("deleteBuffer", buff.JsBuffer)
+}
+
 func (gl *Gl) BindBuffer(buffType int, buff *Buffer) {
 	gl.JsGl.Call("bindBuffer", buffType, buff.JsBuffer)
 }
