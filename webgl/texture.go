@@ -16,6 +16,10 @@ func (gl *Gl) CreateTexture() *Texture {
 	return &Texture{t}
 }
 
+func (gl *Gl) DeleteTexture(texture *Texture) {
+	gl.JsGl.Call("deleteTexture", texture.JsTexture)
+}
+
 func (gl *Gl) BindTexture(target int, texture *Texture) {
 	gl.JsGl.Call("bindTexture", target, texture.JsTexture)
 }
