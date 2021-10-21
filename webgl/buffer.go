@@ -45,6 +45,15 @@ func (gl *Gl) GetAttribLocation(program *Program, attribute string) int {
 	return gl.JsGl.Call("getAttribLocation", program.JsProgram, attribute).Int()
 }
 
+// TODO possibly allow for {}interface of copying?
+func (gl *Gl) ReadPixels(x, y, width, height, format, dataType int, pixels []byte) {
+	jsArray := js.Global().Get("Uint8Array").New(len(pixels))
+	js.CopyBytesToJS(jsArray, pixels)
+
+	gl.JsGl.Call("readPixels", x, y, width, height, format, dataType, jsArray)
+	js.CopyBytesToGo(pixels, jsArray)
+}
+
 // This shouldn't be this hard.
 // https://github.com/golang/go/issues/32402
 func sliceToByteSlice(s interface{}) []byte {
