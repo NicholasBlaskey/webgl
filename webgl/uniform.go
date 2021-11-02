@@ -2,6 +2,7 @@ package webgl
 
 import (
 	"reflect"
+	"runtime"
 	"unsafe"
 
 	"syscall/js"
@@ -118,6 +119,7 @@ func (gl *Gl) UniformMatrix3fv(loc *UniformLocation, transpose bool, x []float32
 // TODO do this to all the other matrix types.
 // Optimized for speed.
 func (gl *Gl) UniformMatrix4fv(loc *UniformLocation, transpose bool, x []float32) {
+	runtime.KeepAlive(x) // Do we need this?
 	h := (*reflect.SliceHeader)(unsafe.Pointer(&x))
 	h.Len *= 4
 	h.Cap *= 4
