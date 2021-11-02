@@ -1,8 +1,24 @@
 package webgl
 
 import (
+	"reflect"
+	"unsafe"
+
 	"syscall/js"
 )
+
+var jsBuffer js.Value
+var jsArray js.Value
+
+func init() {
+	jsBuffer = js.Global().Get("Uint8Array").New(4 * 4 * 4)
+
+	buf := jsBuffer.Get("buffer")
+	jsArray = js.Global().Get("Float32Array").New(buf,
+		0,  // byteOffset
+		16, // byteLength / 4
+	)
+}
 
 type UniformLocation struct {
 	JsUniformLocation js.Value
@@ -99,6 +115,15 @@ func (gl *Gl) UniformMatrix3fv(loc *UniformLocation, transpose bool, x []float32
 }
 
 // Mat4
+// TODO do this to all the other matrix types.
+// Optimized for speed.
 func (gl *Gl) UniformMatrix4fv(loc *UniformLocation, transpose bool, x []float32) {
-	gl.JsGl.Call("uniformMatrix4fv", loc.JsUniformLocation, transpose, toTypedArray(x))
+	h := (*reflect.SliceHeader)(unsafe.Pointer(&x))
+	h.Len *= 4
+	h.Cap *= 4
+	byteSlice := *(*[]byte)(unsafe.Pointer(h))
+	js.CopyBytesToJS(jsBuffer, byteSlice)
+
+	jsArray.Set("buffer", jsBuffer.Get("buffer"))
+	gl.JsGl.Call("uniformMatrix4fv", loc.JsUniformLocation, transpose, jsArray)
 }
